@@ -217,7 +217,7 @@ Uint32 TickTime( Uint32 interval, void* param )
         {
             gTimer.animEnemyAttack = 0;
             
-            gGameLoop.m_HealthCounter -= 10;
+            gGameLoop.m_HealthCounter -= 5;
 
         }
         //Hero Die
