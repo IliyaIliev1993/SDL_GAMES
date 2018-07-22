@@ -49,6 +49,8 @@ bool GameLoop::InitSdl()
         }
     }
     
+    
+    
     return true;
 }
 
@@ -79,6 +81,8 @@ bool GameLoop::ButtonPressed(SDL_Event* eventsHandler)
         gTimer.StopTimer(gTimer.timerHeroeJumping);
         
         gTimer.StopTimer(gTimer.timerHeroeAttacking);
+        
+        gTimer.StopTimer(gTimer.timerEnemyesAppear);
         
         return false;
     }
