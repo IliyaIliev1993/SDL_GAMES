@@ -50,6 +50,8 @@ public:
     int timerHeroeDie = 53;
     unsigned short animHeroeDie = 0;
     
+    int timerGameOver = 30;
+    
     int timerHeroeComing = 10;
     
     int timerEnemyesAppear = 1000;

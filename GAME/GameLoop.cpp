@@ -68,7 +68,7 @@ void GameLoop::PresentScreen()
 //Event Handler for Buttons (returns true if pressed)
 bool GameLoop::ButtonPressed(SDL_Event* eventsHandler)
 {
-    if( gGameLoop.m_HeroStates == heroDie )
+    if( gGameLoop.m_HeroStates == heroDie || gGameLoop.m_HeroStates == heroGameOver )
     {
         gTimer.StopTimer(gTimer.timerHeroeStaying);
         
@@ -186,8 +186,11 @@ void GameLoop::MainLoop()
         Draw(m_Textures.texture_ground, NULL, &gGameLoop.m_Textures.rectGround);
         
         Draw(m_Textures.texture_ground, NULL, &gGameLoop.m_Textures.rectGroundLoop);
-
-        Draw(m_Textures.m_vecHealthIndicator[gGameLoop.m_HealthCounter / 10], NULL, &m_Textures.rectHealthIndicator);
+        
+        if( gGameLoop.m_bBlink )
+        {
+            Draw(m_Textures.m_vecHealthIndicator[gGameLoop.m_HealthCounter / 10], NULL, &m_Textures.rectHealthIndicator);
+        }
 
         switch(gGameLoop.m_EnemyStates)
         {
@@ -261,6 +264,15 @@ void GameLoop::MainLoop()
             Draw(m_Textures.m_vecHeroDie[gTimer.animHeroeDie], NULL, &gGameLoop.m_Textures.rectHeroDie);
 
             break;
+                
+        case heroGameOver:
+                
+            Draw(m_Textures.m_vecHeroDie[gTimer.animHeroeDie], NULL, &gGameLoop.m_Textures.rectHeroDie);
+            
+            Draw(m_Textures.texture_gameOver, NULL, &gGameLoop.m_Textures.rectGameOver);
+            
+            break;
+
 
         default:
 

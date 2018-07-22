@@ -33,6 +33,8 @@ void TexturesAndRects::LoadingAllTextures()
     texture_ground = LoadTextureFromPath("zemq.png");
 
     texture_palma = LoadTextureFromPath("palmi.png");
+    
+    texture_gameOver = LoadTextureFromPath("gameOver.png");
 
     //Loading Health Indicator
     for(int i = 0; i <= 10; i++)

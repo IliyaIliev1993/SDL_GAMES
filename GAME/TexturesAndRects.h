@@ -19,6 +19,8 @@ public:
     SDL_Texture* texture_ground = nullptr;
 
     SDL_Texture* texture_palma = nullptr;
+    
+    SDL_Texture* texture_gameOver = nullptr;
 
     SDL_Texture* LoadTextureFromPath(std::string pathToTexture);
 
@@ -57,6 +59,8 @@ public:
     SDL_Rect rectGroundLoop = {1440,0,1440,780};
 
     SDL_Rect rectHealthIndicator = {20,0,300,100};
+    
+    SDL_Rect rectGameOver = {0, 880, 1440, 780};
 
     //Normal Y = 420, when coming is initialized to -350 to hide
     SDL_Rect rectHero = {10,-350, 450, 300};

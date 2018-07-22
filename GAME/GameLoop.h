@@ -17,7 +17,8 @@ enum EHeroStates
     heroJumping,
     heroWalking,
     heroBeating,
-    heroDie
+    heroDie,
+    heroGameOver
 };
 
 enum EEnemyStates
@@ -43,6 +44,8 @@ public:
     unsigned short m_HeroStates;
 
     unsigned short m_EnemyStates;
+    
+    bool m_bBlink = true;
 
     int m_HealthCounter = 109;
 

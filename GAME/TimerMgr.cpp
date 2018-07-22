@@ -30,6 +30,10 @@ Uint32 TickTime( Uint32 interval, void* param )
     
     if( interval == gTimer.timerEnemyesAppear )
     {
+        if(gGameLoop.m_HealthCounter <= 50)
+        {
+            gGameLoop.m_bBlink = !gGameLoop.m_bBlink;
+        }
         const int nSecondsToComeEnemy = 5;
         
         gTimer.un_enemyAppear += 1;
@@ -285,8 +289,24 @@ Uint32 TickTime( Uint32 interval, void* param )
             gTimer.animHeroeDie = 9;
 
             gTimer.StopTimer(gTimer.timerHeroeDie);
+            
+            gTimer.StartTimer(gTimer.timerGameOver);
+            
+            gGameLoop.m_HeroStates = heroGameOver;
         }
 
+    }
+    
+    if( interval == gTimer.timerGameOver )
+    {
+        gGameLoop.m_Textures.rectGameOver.y -= 5;
+        
+        if( gGameLoop.m_Textures.rectGameOver.y <= 0 )
+        {
+            gGameLoop.m_Textures.rectGameOver.y = 0;
+            
+            gTimer.StopTimer(gTimer.timerGameOver);
+        }
     }
 
     return interval;
